@@ -18,9 +18,14 @@ namespace Labwork_14._02._2023
             arr.Max();
             arr.Search(2);*/
 
-            arr.SortByValue(true);
-            arr.Show();
-            
+            /*arr.SortByValue(true);
+            arr.Show();*/
+
+            //arr.Greater(8);
+
+            arr.EqualToValue(1);
+
+
         }
     }
 }

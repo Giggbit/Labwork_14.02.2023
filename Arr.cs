@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Labwork_14._02._2023
 {
-    internal class Arr : IOutput, IMath, ISort
+    internal class Arr : IOutput, IMath, ISort, ICalc, IOutput2, ICalc2
     {
         private int[] mas = new int[5]; 
 
@@ -16,6 +16,7 @@ namespace Labwork_14._02._2023
             this.mas = mas;
         }
 
+        #region ex1
         public void Enter() {
             Console.WriteLine("Enter value of massive:");
             string n = null; int num = 0;
@@ -37,7 +38,9 @@ namespace Labwork_14._02._2023
              }
             Console.WriteLine(info);
         }
+        #endregion
 
+        #region ex2
         public float Avg() {
             int sum = 0;
             foreach(int a in mas) {
@@ -66,7 +69,9 @@ namespace Labwork_14._02._2023
             if(element == valueToSearch) { Console.WriteLine("Number has found"); }
             return true;
         }
+        #endregion
 
+        #region ex3
         public void SortAsc() {
             Array.Sort(mas, (x, y) => x.CompareTo(y));
         }
@@ -81,5 +86,60 @@ namespace Labwork_14._02._2023
                 Array.Sort(mas, (x, y) => y.CompareTo(x));
             }
         }
+        #endregion
+
+        #region hw1
+        public int Less(int valueToCompare) {
+            foreach(int a in mas) { 
+                if(a < valueToCompare) { Console.WriteLine($"\n{a}"); }
+            }
+            return 0;
+        }
+        public int Greater(int valueToCompare) {
+            foreach(int a in mas) { 
+                if(a > valueToCompare) { Console.WriteLine($"\n{a}"); }
+            }
+            return 0;
+        }
+        #endregion
+
+        #region hw2
+        public void ShowEven() {
+            foreach(int a in mas) {
+                if (a % 2 == 0)
+                    Console.WriteLine($"\n{a}");
+            }
+        }
+        public void ShowOdd() {
+            foreach(int a in mas) {
+                if (a % 2 != 0)
+                    Console.WriteLine($"\n{a}");
+            }
+        }
+        #endregion
+
+        #region hw3
+        public int CountDistinct() {
+            int count = 0;
+            for(int i = 0; i < mas.Length; i++) { 
+                for(int j = 0; j < mas.Length; j++) {
+                    if (mas[i] == mas[j]) { count++; }
+                }
+                if(count == 1) {
+                    Console.WriteLine($"\n{mas[i]}");
+                }
+            }
+            return 0;
+        }
+        public int EqualToValue(int valueToCompare) {
+            int count = 0;
+            foreach(int a in mas) { 
+                if(valueToCompare == a) { count++; }
+            }
+            Console.WriteLine($"\nTotal: {count}");
+            return 0;
+        }
+        #endregion
+
     }
 }
